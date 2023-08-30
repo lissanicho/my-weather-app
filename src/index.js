@@ -1,4 +1,4 @@
-import "./styles.css";
+import "src/styles.css";
 let now = new Date();
 let date = document.querySelector("#date");
 let hours = now.getHours();
