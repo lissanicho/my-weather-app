@@ -1,0 +1,14 @@
+body {
+    background: rgb(0, 0, 77);
+    color: azure;
+}
+
+.container {
+    border-style: solid;
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 15px;
+}
+#current-forecast{
+    margin-top: 15px;
+}

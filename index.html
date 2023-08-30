@@ -11,32 +11,69 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/4fe85eb410.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
     <div class="container">
-      <form id="search-form">
-        <input
-          type="text"
-          placeholder="Enter city"
-          autofocus="on"
-          autocomplete="off"
-          id="search-text-input"
-        />
-        <input type="submit" value="search" />
-      </form>
-      <button id="current-location">Current Weather</button>
-      <div class="row">
+      <div class="row" id="button-row">
+        <div class="col-4">
+          <form id="search-form">
+            <input
+              type="text"
+              placeholder="Enter city"
+              autofocus="on"
+              autocomplete="off"
+              id="search-text-input"
+            />
+            <input type="submit" value="search" />
+          </form>
+        </div>
+        <div class="col-8">
+          <button id="current-location">Current Weather</button>
+        </div>
+      </div>
+      <div class="row" id="current-forecast">
         <div class="col-6">
           <h1>City</h1>
           <p id="date">Day and time</p>
-          <p id="cloud-condition">cloud condition</p>
-
           <h2 id="temp">current temp</h2>
+          <p id="cloud-condition">cloud condition</p>
         </div>
         <div class="col-6">
+          <p id="large-icon"><i class="fa-solid fa-sun"></i></p>
           <p id="humidity">humidity</p>
           <p id="wind">wind</p>
+        </div>
+      </div>
+      <div class="row" id="forecast">
+        <div class="col-3">
+          <p>
+            Day 1<br />
+            <i class="fa-solid fa-sun" id="sunny"></i>
+          </p>
+        </div>
+        <div class="col-3">
+          <p>
+            Day 2<br />
+            <i class="fa-solid fa-sun" id="sunny"></i>
+          </p>
+        </div>
+        <div class="col-3">
+          <p>
+            Day3<br />
+            <i class="fa-solid fa-cloud-sun" id="cloudy"></i>
+          </p>
+        </div>
+        <div class="col-3">
+          <p>
+            Day 4
+            <br />
+            <i class="fa-solid fa-cloud-rain" id="rain"></i>
+          </p>
         </div>
       </div>
       <a href="https://github.com/lissanicho/my-weather-app" target="blank"
