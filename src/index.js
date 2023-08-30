@@ -1,4 +1,4 @@
-import "src/styles.css";
+import "./styles.css";
 let now = new Date();
 let date = document.querySelector("#date");
 let hours = now.getHours();
@@ -69,6 +69,7 @@ function searchEntry(event) {
 let searchButton = document.querySelector("#search-form");
 searchButton.addEventListener("submit", searchEntry);
 
+//add default city to page loading
 function defaultCity() {
         let apiKey = "ed55b36e362d8733f7d859247cedeaf2";
         let apiRoot = "https://api.openweathermap.org/data/2.5/weather?";
