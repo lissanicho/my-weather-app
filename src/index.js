@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="./styles.css"></link>
 let now = new Date();
 let date = document.querySelector("#date");
 let hours = now.getHours();
