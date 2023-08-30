@@ -69,4 +69,12 @@ function searchEntry(event) {
 let searchButton = document.querySelector("#search-form");
 searchButton.addEventListener("submit", searchEntry);
 
-getCurrentPosition();
+function defaultCity() {
+        let apiKey = "ed55b36e362d8733f7d859247cedeaf2";
+        let apiRoot = "https://api.openweathermap.org/data/2.5/weather?";
+        let units = "metric";
+        let apiURL = `${apiRoot}q=Singapore&appid=${apiKey}&units=${units}`;
+        axios.get(apiURL).then(showTemperature);
+      }
+
+      defaultCity();
