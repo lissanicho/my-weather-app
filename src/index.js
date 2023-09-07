@@ -43,7 +43,8 @@ function showTemperature(response) {
           `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
         );
         iconElement.setAttribute("alt", response.data.weather[0].description);
-}
+celsiusTemperature = response.data.main.temp;
+      }
 function currentPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -82,5 +83,29 @@ function defaultCity() {
         let apiURL = `${apiRoot}q=Singapore&appid=${apiKey}&units=${units}`;
         axios.get(apiURL).then(showTemperature);
       }
+
+      //start of code for celsius link
+
+      function changeToFahrenheit(event) {
+        event.preventDefault();
+        let temp = document.querySelector("#temp");
+        let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+        temp.innerHTML = `${Math.round(fahrenheitTemperature)}°F`;
+      }
+
+      function changeToCelsius(event) {
+        event.preventDefault();
+        let temp = document.querySelector("#temp");
+        temp.innerHTML = `${Math.round(celsiusTemperature)}°C`;
+      }
+
+      let celsiusTemperature = null;
+
+      let fahrenheitLink = document.querySelector("#fahrenheit");
+      fahrenheitLink.addEventListener("click", changeToFahrenheit);
+
+      let celsiusLink = document.querySelector("#celsius");
+      celsiusLink.addEventListener("click", changeToCelsius);
+
 
       defaultCity();
