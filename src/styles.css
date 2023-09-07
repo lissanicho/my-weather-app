@@ -2,6 +2,11 @@ body {
     background: rgb(0, 0, 77);
     color: azure;
 }
+a {
+    font-size: 14px;
+    position: relative;
+    top: -12px;
+}
 
 .container {
     border-style: solid;
