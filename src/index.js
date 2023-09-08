@@ -107,5 +107,29 @@ function defaultCity() {
       let celsiusLink = document.querySelector("#celsius");
       celsiusLink.addEventListener("click", changeToCelsius);
 
+//start of code for days in the forecast
 
+      function futureForecast() {
+        let forecast = document.querySelector("#weekly-forecast");
+        let forecastHTML = `<div class="row">`;
+        let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri"];
+
+        days.forEach(function (day) {
+          forecastHTML =
+            forecastHTML +
+            `
+              <div class="col-2">
+                <p>
+                  ${day}
+                  <br />
+                  <i class="fa-solid fa-sun" id="sunny"></i>
+                </p>
+              </div>
+            `;
+        });
+        forecastHTML = forecastHTML + `</div>`;
+        forecast.innerHTML = forecastHTML;
+      }
+
+      futureForecast();
       defaultCity();
