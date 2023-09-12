@@ -118,29 +118,41 @@ function defaultCity() {
       celsiusLink.addEventListener("click", changeToCelsius);
 
 //start of code for days in the forecast
-
+function formatDay(timestamp) {
+        let date = new Date(timestamp * 1000);
+        let day = date.getDay();
+        let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+        return days[day];
+      }
       function futureForecast(response) {
         console.log(response.data.daily);
-        let forecast = document.querySelector("#weekly-forecast");
+        let forecast = response.data.daily;
+        let forecastElement = document.querySelector("#weekly-forecast");
         let forecastHTML = `<div class="row">`;
-        let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri"];
 
-        days.forEach(function (day) {
+        forecast.forEach(function (forecastDay, index) {
           forecastHTML =
             forecastHTML +
             `
               <div class="col-2">
-                <p>
-                  ${day}
+                <div class ="weather-forecast-date">
+                  ${formatDay(forecastDay.dt)}</div>
                   <br />
-                  <i class="fa-solid fa-sun" id="sunny"></i>
-                </p>
+                  <img src="http://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png"
+                 alt= ${forecastDay.weather[0].description}
+                  />
+                  <div id=forecast-temperatures><span id=max>${
+                    forecastDay.temp.max
+                  }</span><span id=min>${forecastDay.temp.min}</span>
+                    </div>
+               
               </div>
             `;
         });
         forecastHTML = forecastHTML + `</div>`;
-        forecast.innerHTML = forecastHTML;
+        forecastElement.innerHTML = forecastHTML;
       }
 
-     
       defaultCity();
