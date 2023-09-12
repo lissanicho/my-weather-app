@@ -20,6 +20,15 @@ let days = [
 let day = days[now.getDay()];
 date.innerHTML = `${day}, ${hours}:${minutes}`;
 
+   //code to get coordinates from API
+      function getForecast(coordinates) {
+        console.log(coordinates);
+        let apiKey = "8161b4309ee03faae957729ba7104797";
+        let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+        console.log(apiURL);
+        axios.get(apiURL).then(futureForecast);
+      }
+
 //code for current location button
 function showTemperature(response) {
   let h1 = document.querySelector("h1");
@@ -44,6 +53,7 @@ function showTemperature(response) {
         );
         iconElement.setAttribute("alt", response.data.weather[0].description);
 celsiusTemperature = response.data.main.temp;
+getForecast(response.data.coord);
       }
 function currentPosition(position) {
   let latitude = position.coords.latitude;
@@ -109,7 +119,8 @@ function defaultCity() {
 
 //start of code for days in the forecast
 
-      function futureForecast() {
+      function futureForecast(response) {
+        console.log(response.data.daily);
         let forecast = document.querySelector("#weekly-forecast");
         let forecastHTML = `<div class="row">`;
         let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri"];
@@ -131,5 +142,5 @@ function defaultCity() {
         forecast.innerHTML = forecastHTML;
       }
 
-      futureForecast();
+     
       defaultCity();
