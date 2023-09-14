@@ -94,28 +94,8 @@ function defaultCity() {
         axios.get(apiURL).then(showTemperature);
       }
 
-      //start of code for celsius link
 
-      function changeToFahrenheit(event) {
-        event.preventDefault();
-        let temp = document.querySelector("#temp");
-        let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-        temp.innerHTML = `${Math.round(fahrenheitTemperature)}°F`;
-      }
-
-      function changeToCelsius(event) {
-        event.preventDefault();
-        let temp = document.querySelector("#temp");
-        temp.innerHTML = `${Math.round(celsiusTemperature)}°C`;
-      }
-
-      let celsiusTemperature = null;
-
-      let fahrenheitLink = document.querySelector("#fahrenheit");
-      fahrenheitLink.addEventListener("click", changeToFahrenheit);
-
-      let celsiusLink = document.querySelector("#celsius");
-      celsiusLink.addEventListener("click", changeToCelsius);
+     
 
 //start of code for days in the forecast
 function formatDay(timestamp) {
