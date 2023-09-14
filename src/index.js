@@ -131,6 +131,7 @@ function formatDay(timestamp) {
         let forecastHTML = `<div class="row">`;
 
         forecast.forEach(function (forecastDay, index) {
+          if (index<6){
           forecastHTML =
             forecastHTML +
             `
@@ -144,12 +145,12 @@ function formatDay(timestamp) {
                  alt= ${forecastDay.weather[0].description}
                   />
                   <div id=forecast-temperatures><span id=max>${
-                    forecastDay.temp.max
-                  }</span><span id=min>${forecastDay.temp.min}</span>
+                    Math.round(forecastDay.temp.max)
+                  }°/ </span><span id=min>${Math.round(forecastDay.temp.min)}°</span>
                     </div>
                
               </div>
-            `;
+            `;}
         });
         forecastHTML = forecastHTML + `</div>`;
         forecastElement.innerHTML = forecastHTML;
