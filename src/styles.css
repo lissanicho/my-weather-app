@@ -20,3 +20,8 @@ a {
 #source-link {
     padding-left: 70px;
 }
+#current-location {
+    background-color: #ff9933;
+    border-radius: 15px;
+    padding: 5px;
+}
