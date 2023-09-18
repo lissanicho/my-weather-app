@@ -124,9 +124,9 @@ function formatDay(timestamp) {
                   }@2x.png"
                  alt= ${forecastDay.weather[0].description}
                   />
-                  <div id=forecast-temperatures><span id=max>${
+                  <div id=forecast-temperatures><b><span id=max>${
                     Math.round(forecastDay.temp.max)
-                  }°/ </span><span id=min>${Math.round(forecastDay.temp.min)}°</span>
+                  }°/ </span></b><span id=min>${Math.round(forecastDay.temp.min)}°</span>
                     </div>
                
               </div>
